@@ -3,7 +3,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets
   def index
-    @budgets = Budget.all
+    @budgets = Budget.page(params[:page]).per(10)
   end
 
   # GET /budgets/1
