@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @user.budgets.each do |budget| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to budget, budget %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to budget, method: :delete, data: { confirm: "Do you really want to delete this budget" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="user_budgets_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "users/user_budgets_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

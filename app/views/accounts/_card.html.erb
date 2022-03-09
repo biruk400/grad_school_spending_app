@@ -6,14 +6,10 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Account type</dt>
-      <!-- Display account_type start -->
       <dd><%= account.account_type %></dd>
-      <!-- Display account_type end -->
 
       <dt>Balance</dt>
-      <!-- Display balance start -->
       <dd><%= account.balance %></dd>
-      <!-- Display balance end -->
 
     </dl>
 
@@ -22,21 +18,17 @@
         <%= link_to_show_or_back account, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link account start -->
       <div class="col">
         <%= link_to edit_account_url(account), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link account end -->
 
-      <!-- Delete link account start -->
       <div class="col">
         <%= link_to account, method: :delete, data: { confirm: "Do you really want to delete this account?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link account end -->
     </div>
   </div>
 

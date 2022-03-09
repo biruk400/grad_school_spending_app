@@ -1,7 +1,6 @@
 <% was_validated = transaction.errors.any? %>
 
 <%= form_with(model: transaction, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = transaction.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% transaction.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for amount start -->
   <div class="form-group">
     <% amount_class = "form-control" %>
     <% amount_was_invalid = transaction.errors.include?(:amount) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :amount %>
-    <!-- Input for amount start -->
     <%= f.number_field :amount, class: amount_class, placeholder: "Enter amount" %>
-    <!-- Input for amount end -->
     <% if amount_was_invalid %>
       <% transaction.errors.full_messages_for(:amount).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for amount end -->
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <% category_class = "form-control" %>
     <% category_was_invalid = transaction.errors.include?(:category) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :category_id %>
-    <!-- Input for category_id start -->
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for category_id end -->
     <% if category_was_invalid %>
       <% transaction.errors.full_messages_for(:category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_id end -->
-  <!-- Label and input for transaction_date start -->
   <div class="form-group">
     <% transaction_date_class = "form-control" %>
     <% transaction_date_was_invalid = transaction.errors.include?(:transaction_date) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :transaction_date %>
-    <!-- Input for transaction_date start -->
     <%= f.date_select :transaction_date, class: transaction_date_class, placeholder: "Enter transaction date" %>
-    <!-- Input for transaction_date end -->
     <% if transaction_date_was_invalid %>
       <% transaction.errors.full_messages_for(:transaction_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for transaction_date end -->
-  <!-- Label and input for account_id start -->
   <div class="form-group">
     <% account_class = "form-control" %>
     <% account_was_invalid = transaction.errors.include?(:account) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :account_id %>
-    <!-- Input for account_id start -->
     <%= f.collection_select :account_id, Account.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for account_id end -->
     <% if account_was_invalid %>
       <% transaction.errors.full_messages_for(:account).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for account_id end -->
-  <!-- Label and input for event start -->
   <div class="form-group">
     <% event_class = "form-control" %>
     <% event_was_invalid = transaction.errors.include?(:event) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :event %>
-    <!-- Input for event start -->
     <%= f.text_field :event, class: event_class, placeholder: "Enter event" %>
-    <!-- Input for event end -->
     <% if event_was_invalid %>
       <% transaction.errors.full_messages_for(:event).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for event end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

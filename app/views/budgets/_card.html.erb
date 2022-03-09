@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @budget.user.present? %>
           <%= link_to budget.user, budget.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Category</dt>
-      <!-- Display category_id start -->
       <dd><%= budget.category_id %></dd>
-      <!-- Display category_id end -->
 
       <dt>Amount</dt>
-      <!-- Display amount start -->
       <dd><%= budget.amount %></dd>
-      <!-- Display amount end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back budget, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link budget start -->
       <div class="col">
         <%= link_to edit_budget_url(budget), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link budget end -->
 
-      <!-- Delete link budget start -->
       <div class="col">
         <%= link_to budget, method: :delete, data: { confirm: "Do you really want to delete this budget?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link budget end -->
     </div>
   </div>
 

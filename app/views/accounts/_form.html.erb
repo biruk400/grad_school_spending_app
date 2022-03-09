@@ -1,7 +1,6 @@
 <% was_validated = account.errors.any? %>
 
 <%= form_with(model: account, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for account_type start -->
   <div class="form-group">
     <% account_type_class = "form-control" %>
     <% account_type_was_invalid = account.errors.include?(:account_type) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :account_type %>
-    <!-- Input for account_type start -->
     <%= f.text_field :account_type, class: account_type_class, placeholder: "Enter account type" %>
-    <!-- Input for account_type end -->
     <% if account_type_was_invalid %>
       <% account.errors.full_messages_for(:account_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for account_type end -->
-  <!-- Label and input for balance start -->
   <div class="form-group">
     <% balance_class = "form-control" %>
     <% balance_was_invalid = account.errors.include?(:balance) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :balance %>
-    <!-- Input for balance start -->
     <%= f.text_field :balance, class: balance_class, placeholder: "Enter balance" %>
-    <!-- Input for balance end -->
     <% if balance_was_invalid %>
       <% account.errors.full_messages_for(:balance).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for balance end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
