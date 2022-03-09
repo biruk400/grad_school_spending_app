@@ -1,6 +1,8 @@
 class Transaction < ApplicationRecord
   # Direct associations
 
+  belongs_to :account
+
   belongs_to :category
 
   belongs_to :user

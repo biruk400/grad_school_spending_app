@@ -4,6 +4,8 @@ RSpec.describe Transaction, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:account) }
+
     it { should belong_to(:category) }
 
     it { should belong_to(:user) }
