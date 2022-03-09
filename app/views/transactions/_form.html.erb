@@ -120,7 +120,7 @@
 
     <%= f.label :account_id %>
     <!-- Input for account_id start -->
-    <%= f.number_field :account_id, class: account_class, placeholder: "Enter account" %>
+    <%= f.collection_select :account_id, Account.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for account_id end -->
     <% if account_was_invalid %>
       <% transaction.errors.full_messages_for(:account).each do |message| %>

@@ -43,7 +43,7 @@
     <%= f.label :account_id %>
 
     <!-- Input for account_id start -->
-    <%= f.text_field :account_id, class: "form-control" %>
+    <%= f.collection_select :account_id, Account.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for account_id end -->
   </div>
   <!-- Label and input for account_id end -->
