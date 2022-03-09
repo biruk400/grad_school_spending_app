@@ -7,8 +7,6 @@ class UserResource < ApplicationResource
 
   has_many   :upcoming_transactions
 
-  has_many   :budgets
-
   has_many   :transactions
 
   # Indirect associations
