@@ -13,7 +13,7 @@ class Api::V1::UpcomingTransactionsController < Api::V1::GraphitiController
     upcoming_transaction = UpcomingTransactionResource.build(params)
 
     if upcoming_transaction.save
-      render jsonapi: upcoming_transaction, status: 201
+      render jsonapi: upcoming_transaction, status: :created
     else
       render jsonapi_errors: upcoming_transaction
     end
@@ -33,7 +33,7 @@ class Api::V1::UpcomingTransactionsController < Api::V1::GraphitiController
     upcoming_transaction = UpcomingTransactionResource.find(params)
 
     if upcoming_transaction.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: upcoming_transaction
     end

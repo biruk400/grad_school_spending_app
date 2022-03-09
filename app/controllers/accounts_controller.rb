@@ -1,10 +1,10 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: %i[show edit update destroy]
 
   # GET /accounts
   def index
     @q = Account.ransack(params[:q])
-    @accounts = @q.result(:distinct => true).includes(:transactions).page(params[:page]).per(10)
+    @accounts = @q.result(distinct: true).includes(:transactions).page(params[:page]).per(10)
   end
 
   # GET /accounts/1
@@ -18,15 +18,14 @@ class AccountsController < ApplicationController
   end
 
   # GET /accounts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /accounts
   def create
     @account = Account.new(account_params)
 
     if @account.save
-      redirect_to @account, notice: 'Account was successfully created.'
+      redirect_to @account, notice: "Account was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   def update
     if @account.update(account_params)
-      redirect_to @account, notice: 'Account was successfully updated.'
+      redirect_to @account, notice: "Account was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,18 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   def destroy
     @account.destroy
-    redirect_to accounts_url, notice: 'Account was successfully destroyed.'
+    redirect_to accounts_url, notice: "Account was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_account
-      @account = Account.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def account_params
-      params.require(:account).permit(:account_type, :balance)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_account
+    @account = Account.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def account_params
+    params.require(:account).permit(:account_type, :balance)
+  end
 end

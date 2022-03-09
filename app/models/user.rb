@@ -2,13 +2,13 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :upcoming_transactions,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :budgets,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :transactions,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class User < ApplicationRecord
   def to_s
     created_at
   end
-
 end

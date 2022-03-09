@@ -12,5 +12,4 @@ class UserResource < ApplicationResource
   has_many   :transactions
 
   # Indirect associations
-
 end

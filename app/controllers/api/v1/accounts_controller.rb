@@ -13,7 +13,7 @@ class Api::V1::AccountsController < Api::V1::GraphitiController
     account = AccountResource.build(params)
 
     if account.save
-      render jsonapi: account, status: 201
+      render jsonapi: account, status: :created
     else
       render jsonapi_errors: account
     end
@@ -33,7 +33,7 @@ class Api::V1::AccountsController < Api::V1::GraphitiController
     account = AccountResource.find(params)
 
     if account.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: account
     end

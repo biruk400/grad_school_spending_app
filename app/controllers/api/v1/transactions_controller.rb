@@ -13,7 +13,7 @@ class Api::V1::TransactionsController < Api::V1::GraphitiController
     transaction = TransactionResource.build(params)
 
     if transaction.save
-      render jsonapi: transaction, status: 201
+      render jsonapi: transaction, status: :created
     else
       render jsonapi_errors: transaction
     end
@@ -33,7 +33,7 @@ class Api::V1::TransactionsController < Api::V1::GraphitiController
     transaction = TransactionResource.find(params)
 
     if transaction.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: transaction
     end
