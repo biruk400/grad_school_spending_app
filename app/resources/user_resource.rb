@@ -5,6 +5,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :budgets
+
   has_many   :transactions
 
   # Indirect associations
