@@ -1,5 +1,7 @@
 ActiveAdmin.register Budget do
 
+ permit_params :user_id, :category_id, :amount
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
