@@ -4,9 +4,6 @@ class User < ApplicationRecord
   has_many   :upcoming_transactions,
              dependent: :destroy
 
-  has_many   :budgets,
-             dependent: :destroy
-
   has_many   :transactions,
              dependent: :destroy
 

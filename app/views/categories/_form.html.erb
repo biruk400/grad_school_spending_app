@@ -23,5 +23,27 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% monthly_budget_class = "form-control" %>
+    <% monthly_budget_was_invalid = category.errors.include?(:monthly_budget) %>
+
+    <% if was_validated %>
+      <% if monthly_budget_was_invalid %>
+        <% monthly_budget_class << " is-invalid" %>
+      <% else %>
+        <% monthly_budget_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :monthly_budget %>
+    <%= f.number_field :monthly_budget, class: monthly_budget_class, placeholder: "Enter monthly budget" %>
+    <% if monthly_budget_was_invalid %>
+      <% category.errors.full_messages_for(:monthly_budget).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
