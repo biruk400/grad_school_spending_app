@@ -1,0 +1,62 @@
+<!-- Form transaction start -->
+<%= form_with(model: @transaction, local: true) do |f| %>
+<!-- Form transaction end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <%= f.label :user_id %>
+
+    <!-- Input for user_id start -->
+    <%= f.text_field :user_id, class: "form-control" %>
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for amount start -->
+  <div class="form-group">
+    <%= f.label :amount %>
+
+    <!-- Input for amount start -->
+    <%= f.text_field :amount, class: "form-control" %>
+    <!-- Input for amount end -->
+  </div>
+  <!-- Label and input for amount end -->
+
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <%= f.label :category_id %>
+
+    <!-- Input for category_id start -->
+    <%= f.text_field :category_id, class: "form-control" %>
+    <!-- Input for category_id end -->
+  </div>
+  <!-- Label and input for category_id end -->
+
+  <!-- Label and input for transaction_date start -->
+  <div class="form-group">
+    <%= f.label :transaction_date %>
+
+    <!-- Input for transaction_date start -->
+    <%= f.date_select :transaction_date, class: "form-control" %>
+    <!-- Input for transaction_date end -->
+  </div>
+  <!-- Label and input for transaction_date end -->
+
+  <!-- Label and input for account_id start -->
+  <!-- Input for account_id start -->
+  <%= f.hidden_field :account_id, value: @account.id %>
+  <!-- Input for account_id end -->
+  <!-- Label and input for account_id end -->
+
+  <!-- Label and input for event start -->
+  <div class="form-group">
+    <%= f.label :event %>
+
+    <!-- Input for event start -->
+    <%= f.text_field :event, class: "form-control" %>
+    <!-- Input for event end -->
+  </div>
+  <!-- Label and input for event end -->
+
+  <%= f.submit "Create transaction", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

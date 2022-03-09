@@ -24,7 +24,12 @@ class BudgetsController < ApplicationController
     @budget = Budget.new(budget_params)
 
     if @budget.save
-      redirect_to @budget, notice: 'Budget was successfully created.'
+      message = 'Budget was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @budget, notice: message
+      end
     else
       render :new
     end

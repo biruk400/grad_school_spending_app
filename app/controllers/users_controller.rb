@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @upcoming_transaction = UpcomingTransaction.new
+    @budget = Budget.new
+    @transaction = Transaction.new
   end
 
   # GET /users/new

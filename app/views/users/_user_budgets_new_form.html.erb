@@ -1,0 +1,32 @@
+<!-- Form budget start -->
+<%= form_with(model: @budget, local: true) do |f| %>
+<!-- Form budget end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <%= f.label :category_id %>
+
+    <!-- Input for category_id start -->
+    <%= f.text_field :category_id, class: "form-control" %>
+    <!-- Input for category_id end -->
+  </div>
+  <!-- Label and input for category_id end -->
+
+  <!-- Label and input for amount start -->
+  <div class="form-group">
+    <%= f.label :amount %>
+
+    <!-- Input for amount start -->
+    <%= f.text_field :amount, class: "form-control" %>
+    <!-- Input for amount end -->
+  </div>
+  <!-- Label and input for amount end -->
+
+  <%= f.submit "Create budget", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

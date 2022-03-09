@@ -24,7 +24,12 @@ class UpcomingTransactionsController < ApplicationController
     @upcoming_transaction = UpcomingTransaction.new(upcoming_transaction_params)
 
     if @upcoming_transaction.save
-      redirect_to @upcoming_transaction, notice: 'Upcoming transaction was successfully created.'
+      message = 'UpcomingTransaction was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @upcoming_transaction, notice: message
+      end
     else
       render :new
     end
