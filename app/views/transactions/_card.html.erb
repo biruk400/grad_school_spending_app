@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= transaction.user_id %></dd>
+      <dd>
+        <% if @transaction.user.present? %>
+          <%= link_to transaction.user, transaction.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Amount</dt>
@@ -17,7 +21,11 @@
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= transaction.category_id %></dd>
+      <dd>
+        <% if @transaction.category.present? %>
+          <%= link_to transaction.category, transaction.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
       <dt>Transaction date</dt>
@@ -27,7 +35,11 @@
 
       <dt>Account</dt>
       <!-- Display account_id start -->
-      <dd><%= transaction.account_id %></dd>
+      <dd>
+        <% if @transaction.account.present? %>
+          <%= link_to transaction.account, transaction.account %>
+        <% end %>
+      </dd>
       <!-- Display account_id end -->
 
       <dt>Event</dt>
