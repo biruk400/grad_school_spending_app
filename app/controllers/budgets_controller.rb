@@ -3,7 +3,8 @@ class BudgetsController < ApplicationController
 
   # GET /budgets
   def index
-    @budgets = Budget.page(params[:page]).per(10)
+    @q = Budget.ransack(params[:q])
+    @budgets = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
   end
 
   # GET /budgets/1

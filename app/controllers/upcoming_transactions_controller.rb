@@ -3,7 +3,8 @@ class UpcomingTransactionsController < ApplicationController
 
   # GET /upcoming_transactions
   def index
-    @upcoming_transactions = UpcomingTransaction.page(params[:page]).per(10)
+    @q = UpcomingTransaction.ransack(params[:q])
+    @upcoming_transactions = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
   end
 
   # GET /upcoming_transactions/1

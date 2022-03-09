@@ -3,7 +3,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = Transaction.page(params[:page]).per(10)
+    @q = Transaction.ransack(params[:q])
+    @transactions = @q.result(:distinct => true).includes(:user, :category, :account).page(params[:page]).per(10)
   end
 
   # GET /transactions/1
