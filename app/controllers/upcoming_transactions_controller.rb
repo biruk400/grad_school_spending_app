@@ -42,8 +42,14 @@ class UpcomingTransactionsController < ApplicationController
   # DELETE /upcoming_transactions/1
   def destroy
     @upcoming_transaction.destroy
-    redirect_to upcoming_transactions_url, notice: 'Upcoming transaction was successfully destroyed.'
+    message = "UpcomingTransaction was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to upcoming_transactions_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
